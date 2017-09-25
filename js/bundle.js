@@ -215,7 +215,8 @@ var _scrollbar = require("./components/scrollbar");
 
 var APP_INT = document.getElementById("root");
 
-function App(app) {
+//function App(app) {
+var App = function App(app) {
 
   var collapseApp = {
     wrapper: app,
@@ -234,12 +235,14 @@ function App(app) {
     container: '.messages'
   };
   (0, _mediabar.mediaBar)(mediaBarApp);
-}
-
-document.onreadystatechange = async function () {
-  if (document.readyState === 'interactive') {
-    App(APP_INT);
-  }
 };
+
+App(APP_INT);
+
+//document.onreadystatechange = async () => {
+//  if (document.readyState === 'interactive') {
+//    App(APP_INT)
+//  }
+//}
 
 },{"./components/collapse":1,"./components/mediabar":2,"./components/scrollbar":3}]},{},[4]);
