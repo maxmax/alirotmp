@@ -1,0 +1,53 @@
+@mixin button-default($color: #cccccc, $bg: #ffffff, $border: #cccccc) {
+	color: $color;
+  background: $bg;
+  border: solid 1px $border;
+}
+
+button, .btn {
+  border: none;
+  font-family: $font-medium;
+  font-size: 0.92em;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 1px;
+  padding: 12px 19px 12px;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: none;
+  border-radius: $border-radius;
+  transition: 0.25s;
+  cursor: pointer;
+  @include button-default(rgba(0, 0, 0, 0.2), white, $color-whiteSmoke);
+  transition: all 0.2s;
+  &:hover, &:focus{
+    opacity: 0.8;
+    outline: 0;
+    transition: all 0.2s;
+  }
+  &.active{
+    opacity: 0.9;
+    transition: all 0.2s;
+  }
+  &.btn-default{
+    @include button-default(rgba(0, 0, 0, 0.2), white, $color-whiteSmoke);
+  }
+  &.btn-success{
+    @include button-default(white, $success-color, $success-color);
+  }
+  &.btn-primary{
+    @include button-default(white, $primary-color, $primary-color);
+  }
+  &.btn-info{
+    @include button-default(white, $info-color, $info-color);
+  }
+  &.btn-warning{
+    @include button-default(white, $warning-color, $warning-color);
+  }
+  &.btn_small{
+    border-radius: $border-radius-lg;
+    font-size: .78em;
+    line-height: 1;
+    padding: 4px 24px;
+  }
+}

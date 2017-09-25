@@ -1,0 +1,29 @@
+<!--messages section-bar, settings or filter messages-->
+{% if messagesSectionBar %}
+  <section class="messages-section-bar">
+    <header>
+      <div>
+        {% if messagesSectionBar.image %}
+          {% include "tmp/elements/profile-icon.html" %}
+        {% endif %}
+        <div>
+          <strong>{{messagesSectionBar.name}}</strong>
+          <p title="{{messagesSectionBar.text}}">{{messagesSectionBar.text}}</p>
+        </div>
+      </div>
+      <aside>
+        {% for item in messagesSectionBar.headerAside %}
+          <button class="{{item.class}}" id="{{item.id}}">{{item.text}}</button>
+        {% endfor %}
+      </aside>
+    </header>
+    <section>
+      <div class="current-date">{{messagesSectionBar.currentDate}}</div>
+      <aside>
+        {% for item in messagesSectionBar.sectionAside %}
+          <button class="{{item.class}}" id="{{item.id}}">{{item.text}}</button>
+        {% endfor %}
+      </aside>
+    </section>
+  </section>
+{% endif %}

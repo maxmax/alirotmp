@@ -1,0 +1,111 @@
+@mixin triangle($top: transparent, $left: transparent, $right:  transparent, $bottom: black, $size: 5px) {
+  width: 0;
+	height: 0;
+  border-top: $size solid $top;
+	border-left: $size solid $left;
+	border-right: $size solid $right;
+	border-bottom: $size solid $bottom;
+}
+
+@mixin clear() {
+  &::after{
+    content: "";
+    display: block;
+    clear: both;
+    float: none;
+  }
+}
+
+@mixin profile-icon($right: 18px, $top: 20px) {
+  .profile-icon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 200%;
+    margin-top: $top;
+    margin-right: $right;
+    float: left;
+    img{
+      display: block;
+      max-width: 100%;
+      line-height: 1;
+      border-radius: 200%;
+    }
+  }
+}
+
+@mixin bottom-shadow() {
+  &::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 0px;
+    width: 100%;
+    height: 5px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.0), #000000);
+    opacity: 0.1;
+  }
+}
+
+@mixin hidden-shadow() {
+  &::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,0.92) 34%,rgba(255,255,255,1) 68%);
+  }
+}
+
+@mixin togglemenu() {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  //border: 1px solid green;
+  width: 30px;
+  height: 30px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  > span{
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: white;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    &:nth-child(1){
+      top: 0px;
+    }
+    &:nth-child(2){
+      top: 13px;
+    }
+    &:nth-child(3){
+      top: 26px;
+    }
+  }
+  &.open{
+    span{
+      &:nth-child(1){
+        top: 13px;
+        transform: rotate(135deg);
+      }
+      &:nth-child(2){
+        opacity: 0;
+        left: -60px;
+      }
+      &:nth-child(3){
+        top: 13px;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}

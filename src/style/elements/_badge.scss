@@ -1,0 +1,18 @@
+@mixin badge-default($color: white, $bg: #333, $border: #333) {
+	color: $color;
+  background: $bg;
+  border: solid 1px $border;
+}
+
+.badge{
+  display: inline-block;
+  min-width: 19px;
+  padding: 0 2px;
+  height: 19px;
+  border-radius: $border-radius-lg;
+  font-size: .78em;
+  font-weight: 500;
+  line-height: 1.7;
+  text-align: center;
+  @include button-default($badge-color, $badge-bg, $badge-bg);
+}

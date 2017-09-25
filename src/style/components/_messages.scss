@@ -1,0 +1,393 @@
+@mixin layout($width: 340px) {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  > aside{
+    width: $width;
+    max-width: 100%;
+    border-right: 1px solid #f0f0f0;
+    min-height: calc(100vh - 80px);
+  }
+  > section{
+    flex: 1;
+    position: relative;
+  }
+  //Media
+  @include mq('tablet-wide', max) {
+    flex-direction: column;
+  }
+}
+
+@mixin bar($height: 80px, $border: whitesmoke, $label-color: #333) {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: $height;
+  border-bottom: 1px solid $border;
+  label{
+    display: inline-block;
+    min-width: 136px;
+    line-height: $height;
+    font-family: $font-medium;
+    font-weight: 500;
+    font-size: .92em;
+    letter-spacing: 1px;
+    color: $label-color;
+    text-transform: uppercase;
+    padding: 0 30px;
+  }
+}
+
+@mixin item() {
+  .messages-aside-item{
+    padding-top: 40px;
+    padding-left: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: $color-tundra;
+    cursor: pointer;
+    @include profile-icon(30px, 0px);
+    header{
+      position: relative;
+      color: black;
+      strong{
+        font-family: $font-medium;
+        line-height: 1;
+        vertical-align: top;
+      }
+      p{
+        font-weight: normal;
+      }
+      .badge{
+        position: absolute;
+        top: 0;
+        right: 20px;
+        z-index: 2;
+      }
+    }
+    p{
+      margin: 0;
+    }
+  }
+}
+
+@mixin section-bar-header() {
+  > header{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: $top-height;
+    border-bottom: 1px solid $color-gray;
+    > div{
+      position: relative;
+      color: #000;
+      width: 50%;
+      min-height: $half-height;
+      padding: 20px 40px 0px;
+      @include profile-icon(30px, 0px);
+      > div{
+        white-space: nowrap;
+        padding-top: 5px;
+        strong {
+          font-family: $font-medium;
+          line-height: 1;
+          vertical-align: top;
+        }
+        p{
+          position: relative;
+          margin: 0;
+          overflow: hidden;
+          white-space:nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    aside{
+      flex: 1;
+      text-align: right;
+      padding: 20px 20px 0px;
+      button{
+        margin-left: 20px;
+        margin-bottom: 17px;
+      }
+    }
+
+    //Media section-bar-header
+    @include mq('desktop', max) {
+      > div{
+        width: 40%;
+      }
+    }
+    @include mq('tablet-wide', max) {
+      flex-direction: column;
+      > div{
+        width: 100%;
+      }
+      aside{
+        text-align: left;
+        padding-left: 40px;
+        button{
+          //TODO: on extand small btn
+          //@extend .btn_small;
+          border-radius: $border-radius-lg;
+          font-size: .78em;
+          line-height: 1;
+          padding: 4px 24px;
+          margin-left: 0px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+  }
+}
+
+@mixin section-bar-section() {
+  > section{
+    position: relative;
+    border-bottom: 1px solid $color-gray;
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    min-height: 60px;
+    > .current-date{
+      width: 200px;
+      max-width: 100%;
+      padding: 20px 40px;
+      color: #4990e2;
+      font-size: 12px;
+      line-height: 1.8;
+      height: 20px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    > aside{
+      flex: 1;
+      padding: 20px 40px 0px;
+      button{
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+    }
+    @include bottom-shadow();
+    //Media section-bar-section
+    @include mq('desktop', max) {
+      >aside{
+        //padding-top: 0px;
+        button{
+          margin-left: 5px;
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+      }
+    }
+    @include mq('tablet-wide', max) {
+      flex-direction: column;
+      >aside{
+        padding-top: 0px;
+        button{
+          margin-left: 0px;
+          margin-right: 5px;
+          padding-left: 14px;
+          padding-right: 14px;
+        }
+      }
+    }
+  }
+}
+
+@mixin section-bar() {
+  @include section-bar-header();
+  @include section-bar-section();
+}
+
+@mixin messages-section-foo() {
+  background: white;
+  border-top: 1px solid $color-gray;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  .form-group{
+    position: relative;
+    background: transparent;
+    .form-control{
+      position: relative;
+      background: 0 0;
+      padding-right: 140px;
+      padding-top: 33px;
+      padding-bottom: 20px;
+      height: auto;
+      overflow: hidden;
+    }
+  }
+}
+
+@mixin section-content() {
+  padding: 0px 0 0px;
+  height: calc(100vh - 120px);
+  overflow: auto;
+  > article, .outgoing, .incoming{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 40px;
+    @include profile-icon(20px, 0);
+    > div{
+      flex: 1;
+      position: relative;
+      > div{
+        margin-bottom: 10px;
+        &:last-child{
+          margin-bottom: 0px;
+        }
+        > span:first-child{
+          position: relative;
+          border: solid 1px $color-gray;
+          border-radius: $border-radius;
+          padding: 13px 24.5px;
+          display: inline-block;
+          color: #000000;
+          font-family: $font-medium;
+          letter-spacing: 0.5px;
+        }
+        &:first-child {
+          > span:first-child{
+            &::before{
+              content: "";
+              @include triangle(transparent,transparent,$color-gray,transparent,6px);
+              position: absolute;
+              top: 15px;
+              left: -12px;
+            }
+            &::after{
+              content: "";
+              position: absolute;
+              top: 16px;
+              left: -10px;
+              @include triangle(transparent,transparent,#ffffff,transparent,5px);
+            }
+          }
+        }
+      }
+    }
+    &.outgoing{
+      > div{
+        > div{
+          text-align: right;
+          > span:first-child{
+            background-color: $color-gray;
+          }
+          &:first-child {
+            > span:first-child{
+              &::before{
+                content: "";
+                @include triangle(transparent,$color-gray,transparent,transparent,6px);
+                position: absolute;
+                top: 15px;
+                left: auto;
+                right: -12px;
+              }
+              &::after{
+                content: "";
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      .date {
+        width: 26px;
+        height: 11px;
+        font-size: .8em;
+        font-family: $font-medium;
+        text-align: right;
+        color: $color-grayHigh;
+        margin-left: 20px;
+      }
+    }
+  }
+  .section-content-delimiter{
+    border-top: 1px solid $color-gray;
+    border-bottom: 1px solid $color-gray;
+    padding: 22px 40px 20px;
+    font-family: $font-medium;
+    font-size: .92em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-blue;
+    line-height: 1;
+  }
+
+}
+
+@mixin media-bar() {
+  .media-bar{
+    padding: 20px 10px;
+    border-bottom: 1px solid $color-gray;
+    text-align: center;
+    display: none;
+    button{
+      margin: 0 10px;
+      &.active{
+        color: $color-purpure;
+        border-color: $color-purpure;
+      }
+    }
+    @include mq('tablet-wide', max) {
+      display: block;
+    }
+  }
+}
+
+@mixin media-show($top: 61px, $width: $aside-width, $height: 100%) {
+  &.media-show{
+    display: block;
+    position: absolute;
+    background: white;
+    width: $width;
+    height: $height;
+    top: $top;
+  }
+}
+
+.messages{
+  @include layout($aside-width);
+  .messages-aside{
+    .messages-aside-bar{
+      @include bar($top-height, $color-gray, $color-blue);
+    }
+    @include mq('tablet-wide', max) {
+      display: none;
+      z-index: 3;
+      @include media-show();
+    }
+  }
+  .messages-aside-items{
+    position: relative;
+    height: 100vh;
+    //padding-bottom: 80px;
+    overflow: auto;
+    max-height: 100%;
+    @include hidden-shadow();
+    @include item();
+  }
+  .messages-section-bar{
+    @include section-bar();
+    @include mq('tablet-wide', max) {
+      display: none;
+      z-index: 2;
+      @include media-show(0px, 100%, auto);
+    }
+  }
+  .messages-section-content{
+    @include section-content();
+  }
+  .messages-section-foo{
+    @include messages-section-foo();
+  }
+  @include media-bar();
+}

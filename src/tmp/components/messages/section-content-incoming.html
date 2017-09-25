@@ -1,0 +1,12 @@
+<!--messages content->incoming message-->
+
+<article class="incoming">
+  {% if item.image.src %}
+    {% include "tmp/elements/profile-icon.html" %}
+  {% endif %}
+  <div>
+    {% for message in item.messages %}
+      <div><span>{{message.text}}</span></div>
+    {% endfor %}
+  </div>
+</article>

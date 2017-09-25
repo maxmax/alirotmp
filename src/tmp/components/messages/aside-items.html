@@ -1,0 +1,8 @@
+<!--messages aside->items-->
+{% if messages %}
+  <section class="messages-aside-items aside-scroll">
+    {% for item in messages %}
+      {% include "./aside-item.html" %}
+    {% endfor %}
+  </section>
+{% endif %}

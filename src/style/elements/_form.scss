@@ -1,0 +1,77 @@
+//form-group
+@mixin form-group($bg: whitesmoke, $form-color: black, $form-bg: whitesmoke, $alt-color: blue) {
+  flex: 1;
+  background: $bg;
+  position: relative;
+  .form-control{
+    border: 0;
+    background-image: none;
+    background-clip: padding-box;
+    height: 79px;
+    display: block;
+    width: 100%;
+    outline: none;
+    font-family: $font-medium;
+    font-size: .92em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: $form-color;
+    background: $form-bg;
+    text-transform: uppercase;
+    padding-left: 38px;
+    padding-right: 80px;
+  }
+  .form-btn{
+    display: block;
+    border: 0px;
+    background-color: transparent;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    color: $alt-color;
+    font-size: 1.7em;
+    text-align: center;
+    > .icon{
+      display: inline-block;
+      position: relative;
+      top: 1.5px;
+    }
+  }
+  .form-btn-group{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: auto;
+    padding-right: 20px;
+    .form-btn{
+      position: relative;
+      display: inline-block;
+      width: auto;
+      padding-left: 10px;
+      &:first-child{
+        padding-right: 10px;
+        .icon{
+          color: initial;
+          font-size: 20px;
+          line-height: 1;
+        }
+      }
+      span{
+        font-size: 13px;
+        font-weight: 500;
+        color: $alt-color;
+        line-height: 1;
+        position: relative;
+        top: -3px;
+      }
+    }
+  }
+}
+
+//run
+.form-group{
+  @include form-group($color-gray, $color-black, $color-gray, $color-blue);
+}

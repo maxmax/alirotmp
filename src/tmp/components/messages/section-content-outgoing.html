@@ -1,0 +1,14 @@
+<!--messages content->outgoing message-->
+
+<article class="outgoing">
+  <div>
+    {% for message in item.messages %}
+      <div>
+        <span>{{message.text}}</span>
+        {% if message.date %}
+          <span class="date">{{message.date}}</span>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</article>

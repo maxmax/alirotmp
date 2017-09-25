@@ -1,0 +1,14 @@
+{% set title = 'Airgms slide' %}
+{% extends 'tmp/_layout.html' %}
+{% block content %}
+
+  <div class="messages">
+    {% include "tmp/components/messages/aside.html" %}
+    <section>
+      {% include "tmp/components/messages/section-bar.html" %}
+      {% include "tmp/components/messages/section-content.html" %}
+      {% include "tmp/components/messages/section-foo.html" %}
+    </section>
+  </div>
+
+{% endblock %}

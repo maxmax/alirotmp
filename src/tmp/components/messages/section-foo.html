@@ -1,0 +1,16 @@
+<!--messages section-foo, send new message-->
+{% if messagesSectionFoo %}
+  <section class="messages-section-foo">
+    <div class="form-group">
+      <textarea class="form-control" id="{{messagesSectionFoo.id}}" placeholder="{{messagesSectionFoo.placeholder}}"></textarea>
+      <div class="form-btn-group">
+        <button class="form-btn">
+          <i class="icon {{messagesSectionFoo.icon}}"></i>
+        </button>
+        <button class="form-btn">
+          <span>{{messagesSectionFoo.button}}</span>
+        </button>
+      <div>
+    </div>
+  </section>
+{% endif %}

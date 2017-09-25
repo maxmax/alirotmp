@@ -1,0 +1,190 @@
+//Navbar
+
+@mixin aliro($font: $font-black, $color: white) {
+  width: 88px;
+	height: 21px;
+  font-family: $font;
+	font-size: 18px;
+	font-weight: 900;
+	letter-spacing: 7.5px;
+	text-align: center;
+	color: $color;
+  letter-spacing: 5.6px;
+  text-transform: uppercase;
+}
+
+@mixin navbar($bg: #5b86e5) {
+  background-color: #5b86e5;
+  background: $bg;
+}
+
+//Media navbar styled
+@mixin media-nav(){
+  .navbar-nav{
+    border-top: 1px solid rgba(0, 0, 0, .05);
+    display: block;
+    width: 100%;
+    float: none;
+    clear: both;
+    >.nav-item{
+      float: left;
+      width: 100%;
+      transition: all 0.3s;
+      >.nav-link{
+        display: block;
+      }
+      &.active, &:hover{
+        transition: all 0.3s;
+        > .nav-link{
+          &::after{
+            content: "";
+            position: absolute;
+            bottom:45%;
+            left: auto;
+            right: 0;
+            @include triangle(transparent,transparent,white,transparent,6px);
+          }
+        }
+      }
+    }
+    &.pull-right{
+      >.nav-item{
+        width: 70%;
+        display: block;
+        float: left;
+        &:last-child{
+          width: 30%;
+          text-align: right;
+        }
+        &.active, &:hover{
+          > .nav-link{
+            &::after{
+              content: "";
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar{
+  position: relative;
+  @include navbar($navbar-bg);
+  .navbar-brand{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    height: $top-height;
+    width: $aside-width;
+    max-width: 100%;
+    float: left;
+    border-right: 1px solid rgba(0, 0, 0, .05);
+    > span{
+      @include aliro();
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .toggle-menu{
+    @include togglemenu();
+    display: none;
+  }
+  .collapse{
+    display: block;
+    min-height: $top-height;
+    width: auto;
+  }
+  .navbar-nav{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-left: 1px solid rgba(255, 255, 255, .2);
+    &.pull-right{
+      border-left: 0px;
+    }
+    > .nav-item{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      float: left;
+      > .nav-link{
+        position: relative;
+        display: inline-block;
+        padding: 0 18px;
+        line-height: 80px;
+        color: white;
+        text-decoration: none;
+        font-size: 1.16em;
+        font-weight: 100;
+        .badge{
+          margin-left: 5px;
+        }
+        @include profile-icon();
+        .nav-info{
+          display: block;
+          float: left;
+          line-height: 1;
+          margin-top: 26px;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 1.15;
+          span{
+            display: block;
+            font-weight: 100;
+          }
+        }
+        .icon-shape{
+          position: relative;
+          display: inline-block;
+          width: 18px;
+          font-size: 18px;
+          line-height: 1;
+          top: 3px;
+          margin-right: 12px;
+        }
+      }
+      &.active{
+        > .nav-link{
+          background-color: rgba(0, 0, 0, .1);
+          &::after{
+            content: "";
+            position: absolute;
+            bottom:0;
+            left: 50%;
+            @include triangle($bottom: white);
+          }
+        }
+      }
+    }
+  }
+  @include clear();
+  //Media
+  @include mq('tablet-wide', max) {
+    .toggle-menu{
+      display: block;
+    }
+    .collapse{
+      display: none;
+      @include media-nav();
+      &.show{
+        display: block;
+      }
+    }
+    .navbar-brand{
+      width: 200px;
+      border-right: 0px;
+      >span{
+        left: 20px;
+        transform: translate(0%,-50%);
+      }
+    }
+  }
+  //@include mq('tablet', max) {
+  //
+  //}
+
+}

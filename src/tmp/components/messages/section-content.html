@@ -1,0 +1,32 @@
+<!--messages section-content-->
+
+{% set data = {
+  delimiter: {
+    title: "26 January 2017"
+  },
+  today: {
+    title: "YESTERDAY"
+  }
+} %}
+
+<section class="messages-section-content section-content-scroll">
+  {% for item in messagesHistory %}
+    {% if item.incoming %}
+      {% include "./section-content-outgoing.html" %}
+    {% else %}
+      {% include "./section-content-incoming.html" %}
+    {% endif %}
+  {% endfor %}
+
+  {% for key, time in data.today | dictsort %}
+    {% include "./section-content-delimiter.html" %}
+  {% endfor %}
+
+  {% for item in messagesToday %}
+    {% if item.incoming %}
+      {% include "./section-content-outgoing.html" %}
+    {% else %}
+      {% include "./section-content-incoming.html" %}
+    {% endif %}
+  {% endfor %}
+</section>

@@ -1,0 +1,56 @@
+<!--global navigation top-->
+
+<header class="navbar">
+  <a class="navbar-brand" href="/"><span>{{brandOption.title}}</span></a>
+
+  <div id="collapseToggle" class="toggle-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="collapse navbar-collapse" id="collapseContainer">
+
+    {% if navbarTop.base %}
+      <ul class="navbar-nav">
+        {% for item in navbarTop.base %}
+          <li class="nav-item {{item.class}}">
+            <a class="nav-link" href={{item.url}}>
+              {{item.text}}
+              {% if item.badge %}
+                <span class="badge">{{item.badge}}</span>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if navbarTop.aside %}
+      <ul class="navbar-nav pull-right">
+        {% for item in navbarTop.aside %}
+
+          <li class="nav-item {{item.class}}">
+            <a class="nav-link" href="{{item.url}}">
+
+              {% if item.image.src %}
+                {% include "tmp/elements/profile-icon.html" %}
+              {% endif %}
+
+              {% if item.name %}
+                <span class="nav-info">{{item.name}} <span>{{item.info}}</span></span>
+              {% endif %}
+
+              {% if item.icon %}
+                <i class="icon {{item.icon}}"></i>
+              {% endif %}
+
+            </a>
+          </li>
+
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>
+</header>

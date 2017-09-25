@@ -1,0 +1,16 @@
+<!--messages items->item-->
+<article class="messages-aside-item">
+  {% if item.image.src %}
+    {% include "tmp/elements/profile-icon.html" %}
+  {% endif %}
+  <div>
+    <header>
+      <strong>{{item.title}}</strong>
+      <p>{{item.subtitle}}</p>
+      {% if item.badge %}
+        <span class="badge">{{item.badge}}</span>
+      {% endif %}
+    </header>
+    <p>{{item.text}}</p>
+  </div>
+</article>

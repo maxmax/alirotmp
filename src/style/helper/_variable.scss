@@ -1,0 +1,118 @@
+//
+// Variables
+// --------------------------------------------------
+
+//
+// Brand color
+// --------------------------------------------------
+
+$color-white: #ffffff;
+$color-whiteSmoke: #f6f9fd;
+$color-black: #000000;
+$color-tundra: #4a4a4a;
+$color-gray: #f0f0f0;
+$color-grayHigh: #d8d8d8;
+$color-purpure: #36d1dc;
+$color-blue: #4990e2;
+
+//
+// Color base
+// --------------------------------------------------
+
+$background-bg: $color-white;
+
+$success-color: $color-purpure;
+$primary-color: $color-blue;
+$info-color: #BDE5F8; //color not defined
+$warning-color: #FEEFB3; //color not defined
+
+//
+// Radius
+// --------------------------------------------------
+$border-radius:          .4em !default;
+$border-radius-lg:       .9em !default;
+$border-radius-sm:       1.4em !default;
+
+//
+// Radius
+// --------------------------------------------------
+
+$badge-bg: $color-purpure;
+$badge-color: white;
+
+//
+// Gutters
+// --------------------------------------------------
+
+$aside-width: 340px;
+$top-height: 80px;
+$half-height: 40px;
+
+//
+// Fonts
+// --------------------------------------------------
+
+@mixin font-face($fontFamily, $path, $fileName, $svgLabel, $fontWeight: normal, $fontStyle: normal) {
+	@font-face {
+		font-family: $fontFamily;
+		src: url('#{$path + $fileName}.eot');
+		src: url('#{$path + $fileName}.eot?#iefix') format('embedded-opentype'),
+		url('#{$path + $fileName}.woff') format('woff'),
+		url('#{$path + $fileName}.ttf') format('truetype'),
+		url('#{$path + $fileName}.svg##{$svgLabel}') format('svg');
+		font-weight: $fontWeight;
+		font-style: $fontStyle;
+	}
+}
+
+$font-regular: 'Roboto-Regular', sans-serif;
+$font-bold: 'Roboto-Bold', sans-serif;
+$font-black: 'Roboto-Black', sans-serif;
+$font-medium: 'Roboto-Medium', sans-serif;
+
+@include font-face($font-regular, '../fonts/Roboto/', 'Roboto-Regular', 'Roboto-Regular');
+@include font-face($font-bold, '../fonts/Roboto/', 'Roboto-Bold', 'Roboto-Bold');
+@include font-face($font-black, '../fonts/Roboto/', 'Roboto-Black', 'Roboto-Black');
+@include font-face($font-medium, '../fonts/Roboto/', 'Roboto-Medium', 'Roboto-Medium');
+
+//
+// Def Mode
+// --------------------------------------------------
+
+@mixin defmode() {
+	font-family: $font-regular;
+	background: $background-bg;
+	position: relative;
+  font-size: 13px;
+}
+
+//
+// Media Breakpoints
+// --------------------------------------------------
+
+$breakpoints: (
+  "phone":        400px,
+  "tablet":       780px,
+  "tablet-wide":  1002px,
+  "desktop":      1200px,
+  "desktop-wide": 1440px
+);
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+//
+// Navbar
+// --------------------------------------------------
+
+$navbar-bg: linear-gradient(86deg, #5b86e5, #36d1dc);
+$navbar-color: white;

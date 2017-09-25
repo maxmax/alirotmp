@@ -1,0 +1,12 @@
+<!--messages aside-bar, messages list filter-->
+{% if messagesAsideBar %}
+  <section class="messages-aside-bar">
+    <label>{{messagesAsideBar.label}}</label>
+    <div class="form-group">
+      <input type="text" class="form-control" id="{{messagesAsideBar.id}}" placeholder="{{messagesAsideBar.placeholder}}">
+      <button class="form-btn">
+        <i class="icon {{messagesAsideBar.icon}}"></i>
+      </button>
+    </div>
+  </section>
+{% endif %}
