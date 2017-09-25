@@ -129,6 +129,54 @@
         "two":  "media/profile/bitmap@2x.png 2x",
         "three":  "media/profile/bitmap@3x.png 3x"
       }
+    },
+    {
+      "id" : 6,
+      "title" : "Michael Davis",
+      "subtitle" : "Contract # 24",
+      "badge" : 0,
+      "text" : "Lorem Ipsum is simply dummy text of the printing.",
+      "image" : {
+        "src":  "media/profile/bitmap.png",
+        "two":  "media/profile/bitmap@2x.png 2x",
+        "three":  "media/profile/bitmap@3x.png 3x"
+      }
+    },
+    {
+      "id" : 7,
+      "title" : "Michael Davis",
+      "subtitle" : "Contract # 24",
+      "badge" : 0,
+      "text" : "Lorem Ipsum is simply dummy text of the printing.",
+      "image" : {
+        "src":  "media/profile/bitmap.png",
+        "two":  "media/profile/bitmap@2x.png 2x",
+        "three":  "media/profile/bitmap@3x.png 3x"
+      }
+    },
+    {
+      "id" : 8,
+      "title" : "Michael Davis",
+      "subtitle" : "Contract # 24",
+      "badge" : 0,
+      "text" : "Lorem Ipsum is simply dummy text of the printing.",
+      "image" : {
+        "src":  "media/profile/bitmap.png",
+        "two":  "media/profile/bitmap@2x.png 2x",
+        "three":  "media/profile/bitmap@3x.png 3x"
+      }
+    },
+    {
+      "id" : 9,
+      "title" : "Michael Davis",
+      "subtitle" : "Contract # 24",
+      "badge" : 0,
+      "text" : "Lorem Ipsum is simply dummy text of the printing.",
+      "image" : {
+        "src":  "media/profile/bitmap.png",
+        "two":  "media/profile/bitmap@2x.png 2x",
+        "three":  "media/profile/bitmap@3x.png 3x"
+      }
     }
   ],
   "messagesToday": [
@@ -185,6 +233,21 @@
         },
         {
           "id" : 1,
+          "text" : "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+          "date" : "11:12"
+        },
+        {
+          "id" : 2,
+          "text" : "There are many variations of passages of Lorem Ipsum available.",
+          "date" : "11:12"
+        },
+        {
+          "id" : 3,
+          "text" : "There are many variations of passages of Lorem Ipsum available by injected humour, or randomised words which don't look even slightly believable.",
+          "date" : "11:12"
+        },
+        {
+          "id" : 4,
           "text" : "What next? 😃",
           "date" : "11:15"
         }

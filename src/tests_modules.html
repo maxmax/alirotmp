@@ -1,7 +1,67 @@
 {% set title = 'tests' %}
-{% extends 'tmp/_layout_test.html' %}
+{% extends 'tmp/_layout.html' %}
 {% block content %}
 
-  <div class="test-wrapper">test</div>
+  {% set testData = {
+    int: {
+      title: "UI:"
+    },
+    buttons: [
+      {
+        id: 0,
+        text: "Button",
+        class: ""
+      },
+      {
+        id: 1,
+        text: "Button default",
+        class: "btn-default"
+      },
+      {
+        id: 2,
+        text: "Button success",
+        class: "btn-success"
+      },
+      {
+        id: 3,
+        text: "Button primary",
+        class: "btn-primary"
+      },
+      {
+        id: 4,
+        text: "Button info",
+        class: "btn-info"
+      },
+      {
+        id: 5,
+        text: "Button warning",
+        class: "btn-warning"
+      },
+      {
+        id: 6,
+        text: "Button info small",
+        class: "btn-info btn_small"
+      },
+      {
+        id: 7,
+        text: "Hello there! I'm interested in your product",
+        class: "btn-success btn_small"
+      }
+    ]
+  } %}
+
+  <div class="test-wrapper">
+    <h2 class="text-center">{{testData.int.title}}</h2>
+
+    {% if testData.buttons %}
+      <section class="text-center">
+        <h3>Buttons</h3>
+        {% for btn in testData.buttons %}
+          <button class="{{btn.class}}">{{btn.text}}</button>
+        {% endfor %}
+      </section>
+    {% endif %}
+
+  </div>
 
 {% endblock %}
