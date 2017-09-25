@@ -4,7 +4,8 @@ import {scrollBar} from "./components/scrollbar";
 
 const APP_INT = document.getElementById("root");
 
-function App(app) {
+//function App(app) {
+const App = (app) => {
 
   const collapseApp = {
     wrapper: app,
@@ -26,9 +27,10 @@ function App(app) {
 
 }
 
+App(APP_INT);
 
-document.onreadystatechange = async () => {
-  if (document.readyState === 'interactive') {
-    App(APP_INT)
-  }
-}
+//document.onreadystatechange = async () => {
+//  if (document.readyState === 'interactive') {
+//    App(APP_INT)
+//  }
+//}

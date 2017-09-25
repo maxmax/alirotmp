@@ -278,6 +278,7 @@
 @mixin section-content() {
   padding: 0px 0 0px;
   height: calc(100vh - 220px);
+  //height: calc(100vh - 220px);
   overflow: auto;
   > article, .outgoing, .incoming{
     position: relative;
@@ -380,6 +381,9 @@
     letter-spacing: 1px;
     color: $color-blue;
     line-height: 1;
+  }
+  @include mq('tablet-wide', max) {
+    height: 100vh;
   }
 
 }

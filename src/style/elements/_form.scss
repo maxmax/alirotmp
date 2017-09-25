@@ -72,6 +72,12 @@
         top: -3px;
       }
     }
+    @include mq('phone', max) {
+      .form-btn{
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+    }
   }
 }
 
