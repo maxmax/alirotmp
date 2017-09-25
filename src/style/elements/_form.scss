@@ -21,6 +21,9 @@
     padding-left: 38px;
     padding-right: 80px;
   }
+  textarea.form-control{
+    padding-left: 30px;
+  }
   .form-btn{
     display: block;
     border: 0px;
@@ -50,9 +53,9 @@
       position: relative;
       display: inline-block;
       width: auto;
-      padding-left: 10px;
+      padding-right: 30px;
       &:first-child{
-        padding-right: 10px;
+        padding-right: 5px;
         .icon{
           color: initial;
           font-size: 20px;
@@ -60,6 +63,7 @@
         }
       }
       span{
+        font-family: $font-medium;
         font-size: 13px;
         font-weight: 500;
         color: $alt-color;

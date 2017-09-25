@@ -78,12 +78,25 @@ $font-medium: 'Roboto-Medium', sans-serif;
 //
 // Def Mode
 // --------------------------------------------------
+@mixin section-wrapper() {
+	width: 1200px;
+	max-width: 100%;
+	margin: 0 auto;
+	height: 100vh;
+	border: 1px solid $color-gray;
+}
+//
+// Def Mode
+// --------------------------------------------------
 
 @mixin defmode() {
 	font-family: $font-regular;
 	background: $background-bg;
 	position: relative;
   font-size: 13px;
+	.section-wrapper{
+		@include section-wrapper();
+	}
 }
 
 //
@@ -93,7 +106,7 @@ $font-medium: 'Roboto-Medium', sans-serif;
 $breakpoints: (
   "phone":        400px,
   "tablet":       780px,
-  "tablet-wide":  1002px,
+  "tablet-wide":  1030px,
   "desktop":      1200px,
   "desktop-wide": 1440px
 );
