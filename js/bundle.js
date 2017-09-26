@@ -16,11 +16,13 @@ var collapse = exports.collapse = function collapse(props) {
       btn = props.btn,
       container = props.container;
 
-  var collapseBtn = wrapper.querySelector(btn);
-  var collapseContainer = wrapper.querySelector(container);
-  collapseBtn.addEventListener("click", function () {
-    collapseRun(this, collapseContainer);
-  }, false);
+  var collapseBtn = wrapper.querySelector(btn) || null;
+  var collapseContainer = wrapper.querySelector(container) || null;
+  if (collapseBtn && collapseContainer) {
+    collapseBtn.addEventListener("click", function () {
+      collapseRun(this, collapseContainer);
+    }, false);
+  }
 };
 
 },{}],2:[function(require,module,exports){
@@ -190,6 +192,7 @@ var App = function App(app) {
 
   (0, _scrollbar.scrollBar)(state.sectionScroll);
   (0, _scrollbar.scrollBar)(state.asideScroll);
+
   (0, _collapse.collapse)(state.collapseNav);
   (0, _collapse.collapse)(state.collapseAside);
   (0, _collapse.collapse)(state.collapseContainer);
