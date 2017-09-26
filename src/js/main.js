@@ -28,6 +28,7 @@ const App = (app) => {
 
   scrollBar(state.sectionScroll);
   scrollBar(state.asideScroll);
+  
   collapse(state.collapseNav);
   collapse(state.collapseAside);
   collapse(state.collapseContainer);

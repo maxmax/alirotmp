@@ -1,6 +1,6 @@
 @import "helper/variable";
 @import "helper/mixins";
-@import "helper/font-awesome";
+@import "lib/font-awesome";
 
 body{
   @include defmode();

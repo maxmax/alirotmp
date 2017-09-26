@@ -7,7 +7,9 @@ const collapseRun = (e, container) => {
 
 export const collapse = (props) => {
   const {wrapper, btn, container} = (props);
-  const collapseBtn = wrapper.querySelector(btn);
-  const collapseContainer = wrapper.querySelector(container);
-  collapseBtn.addEventListener("click", function () {collapseRun(this, collapseContainer)}, false);
+  const collapseBtn = wrapper.querySelector(btn) || null;
+  const collapseContainer = wrapper.querySelector(container) || null;
+  if (collapseBtn && collapseContainer) {
+    collapseBtn.addEventListener("click", function () {collapseRun(this, collapseContainer)}, false);
+  }
 }
