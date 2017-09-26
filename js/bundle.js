@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 //Collapse default toggle behavior
 
 var collapseRun = function collapseRun(e, container) {
-  e.classList.toggle('open');
+  e.classList.toggle('active');
   container.classList.toggle('show');
 };
 
@@ -24,54 +24,6 @@ var collapse = exports.collapse = function collapse(props) {
 };
 
 },{}],2:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-//Collapse default toggle behavior (TODO: ref this)
-
-var showBar = function showBar(event, element) {
-  event.classList.toggle('active');
-  element.classList.toggle('media-show');
-};
-
-var btnCreate = function btnCreate(reg, text) {
-  var el = document.createElement('button');
-  el.innerHTML = text;
-  el.classList.add('btn_small');
-  el.addEventListener("click", function () {
-    showBar(this, reg);
-  }, false);
-
-  return el;
-};
-
-var barTmp = function barTmp(region) {
-
-  var allRegion = region.querySelector(".messages-aside");
-  var settingsRegion = region.querySelector(".messages-section-bar");
-
-  var all = btnCreate(allRegion, 'All');
-  var settings = btnCreate(settingsRegion, 'Settings');
-
-  var section = document.createElement('section');
-  section.classList.add('media-bar');
-  section.appendChild(all);
-  section.appendChild(settings);
-
-  return section;
-};
-
-var mediaBar = exports.mediaBar = function mediaBar(props) {
-  var wrapper = props.wrapper,
-      container = props.container;
-
-  var region = wrapper.querySelector(container);
-  region.prepend(barTmp(region));
-};
-
-},{}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -204,45 +156,45 @@ var scrollBar = exports.scrollBar = function scrollBar(elScroll) {
   SimpleScrollbar.initEl(elScroll);
 };
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 "use strict";
 
 var _collapse = require("./components/collapse");
-
-var _mediabar = require("./components/mediabar");
 
 var _scrollbar = require("./components/scrollbar");
 
 var APP_INT = document.getElementById("root");
 
-//function App(app) {
 var App = function App(app) {
 
-  var collapseApp = {
+  var state = {
     wrapper: app,
-    btn: '#collapseToggle',
-    container: '#collapseContainer'
+    sectionScroll: app.querySelector('.section-content-scroll'),
+    asideScroll: app.querySelector('.aside-scroll'),
+    collapseNav: {
+      wrapper: app,
+      btn: '#collapseToggle',
+      container: '#collapseContainer'
+    },
+    collapseAside: {
+      wrapper: app,
+      btn: '#messagesAll',
+      container: '#messages-aside-bar'
+    },
+    collapseContainer: {
+      wrapper: app,
+      btn: '#messagesSettings',
+      container: '#messagesSectionBar'
+    }
   };
-  (0, _collapse.collapse)(collapseApp);
 
-  var elScroll = app.querySelector('.section-content-scroll');
-  var asideScroll = app.querySelector('.aside-scroll');
-  (0, _scrollbar.scrollBar)(elScroll);
-  (0, _scrollbar.scrollBar)(asideScroll);
-
-  var mediaBarApp = {
-    wrapper: app,
-    container: '.messages'
-  };
-  (0, _mediabar.mediaBar)(mediaBarApp);
+  (0, _scrollbar.scrollBar)(state.sectionScroll);
+  (0, _scrollbar.scrollBar)(state.asideScroll);
+  (0, _collapse.collapse)(state.collapseNav);
+  (0, _collapse.collapse)(state.collapseAside);
+  (0, _collapse.collapse)(state.collapseContainer);
 };
 
 App(APP_INT);
 
-//document.onreadystatechange = async () => {
-//  if (document.readyState === 'interactive') {
-//    App(APP_INT)
-//  }
-//}
-
-},{"./components/collapse":1,"./components/mediabar":2,"./components/scrollbar":3}]},{},[4]);
+},{"./components/collapse":1,"./components/scrollbar":2}]},{},[3]);

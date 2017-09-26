@@ -53,7 +53,7 @@
         "name" : "",
         "info" : "",
         "image" : {},
-        "icon" : "icon-shape"
+        "icon" : "fa fa-sign-out"
       }
     ]
   },
@@ -258,7 +258,7 @@
     "id" : "exampleUserSearch",
     "label": "Messages",
     "placeholder": "Clients",
-    "icon" : "icon-search"
+    "icon" : "fa fa-search"
   },
   "messagesSectionBar": {
     "name": "Michael Davis",
@@ -307,7 +307,7 @@
   "messagesSectionFoo": {
     "id" : "exampleNewMessage",
     "placeholder": "Type messege here",
-    "icon" : "icon-paperclip",
+    "icon" : "fa fa-paperclip",
     "button" : "SEND"
   }
 }
