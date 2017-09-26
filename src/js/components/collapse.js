@@ -1,7 +1,7 @@
 //Collapse default toggle behavior
 
 const collapseRun = (e, container) => {
-  e.classList.toggle('open');
+  e.classList.toggle('active');
   container.classList.toggle('show');
 }
 

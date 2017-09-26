@@ -408,7 +408,7 @@
 }
 
 @mixin media-show($top: 61px, $width: $aside-width, $height: 100%) {
-  &.media-show{
+  &.media-show, &.show{
     display: block;
     position: absolute;
     background: white;
@@ -428,6 +428,9 @@
       display: none;
       z-index: 3;
       @include media-show();
+      &.show{
+        display: block;
+      }
     }
   }
   .messages-aside-items{
@@ -442,7 +445,7 @@
     @include mq('tablet-wide', max) {
       display: none;
       z-index: 2;
-      @include media-show(0px, 100%, auto);
+      @include media-show(70px, 100%, auto);
     }
   }
   .messages-section-content{

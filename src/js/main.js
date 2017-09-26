@@ -1,36 +1,37 @@
 import {collapse} from "./components/collapse";
-import {mediaBar} from "./components/mediabar";
 import {scrollBar} from "./components/scrollbar";
 
 const APP_INT = document.getElementById("root");
 
-//function App(app) {
 const App = (app) => {
 
-  const collapseApp = {
+  const state = {
     wrapper: app,
-    btn: '#collapseToggle',
-    container: '#collapseContainer'
+    sectionScroll: app.querySelector('.section-content-scroll'),
+    asideScroll: app.querySelector('.aside-scroll'),
+    collapseNav: {
+      wrapper: app,
+      btn: '#collapseToggle',
+      container: '#collapseContainer'
+    },
+    collapseAside: {
+      wrapper: app,
+      btn: '#messagesAll',
+      container: '#messages-aside-bar'
+    },
+    collapseContainer: {
+      wrapper: app,
+      btn: '#messagesSettings',
+      container: '#messagesSectionBar'
+    }
   }
-  collapse(collapseApp);
 
-  const elScroll = app.querySelector('.section-content-scroll');
-  const asideScroll = app.querySelector('.aside-scroll');
-  scrollBar(elScroll);
-  scrollBar(asideScroll);
-
-  const mediaBarApp = {
-    wrapper: app,
-    container: '.messages'
-  }
-  mediaBar(mediaBarApp);
+  scrollBar(state.sectionScroll);
+  scrollBar(state.asideScroll);
+  collapse(state.collapseNav);
+  collapse(state.collapseAside);
+  collapse(state.collapseContainer);
 
 }
 
 App(APP_INT);
-
-//document.onreadystatechange = async () => {
-//  if (document.readyState === 'interactive') {
-//    App(APP_INT)
-//  }
-//}
