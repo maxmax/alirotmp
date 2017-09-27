@@ -1,5 +1,5 @@
 export const scrollBar = (elScroll) => {
-  //TODO: refactor
+  
   (function(w, d) {
     var raf = w.requestAnimationFrame || w.setImmediate || function(c) {
       return setTimeout(c, 0);
@@ -125,6 +125,8 @@ export const scrollBar = (elScroll) => {
     w.SimpleScrollbar = ss;
   })(window, document);
 
-  SimpleScrollbar.initEl(elScroll);
+  if (elScroll) {
+    SimpleScrollbar.initEl(elScroll);
+  }
 
 }
