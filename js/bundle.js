@@ -5,22 +5,18 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 //Collapse default toggle behavior
-
 var collapseRun = function collapseRun(e, container) {
   e.classList.toggle('active');
   container.classList.toggle('show');
 };
 
 var collapse = exports.collapse = function collapse(props) {
-  var wrapper = props.wrapper,
-      btn = props.btn,
+  var btn = props.btn,
       container = props.container;
 
-  var collapseBtn = wrapper.querySelector(btn) || null;
-  var collapseContainer = wrapper.querySelector(container) || null;
-  if (collapseBtn && collapseContainer) {
-    collapseBtn.addEventListener("click", function () {
-      collapseRun(this, collapseContainer);
+  if (btn && container) {
+    btn.addEventListener("click", function () {
+      collapseRun(this, container);
     }, false);
   }
 };
@@ -32,7 +28,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var scrollBar = exports.scrollBar = function scrollBar(elScroll) {
-  //TODO: refactor
+
   (function (w, d) {
     var raf = w.requestAnimationFrame || w.setImmediate || function (c) {
       return setTimeout(c, 0);
@@ -155,49 +151,55 @@ var scrollBar = exports.scrollBar = function scrollBar(elScroll) {
     w.SimpleScrollbar = ss;
   })(window, document);
 
-  SimpleScrollbar.initEl(elScroll);
+  if (elScroll) {
+    SimpleScrollbar.initEl(elScroll);
+  }
 };
 
 },{}],3:[function(require,module,exports){
 "use strict";
 
-var _collapse = require("./components/collapse");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.App = undefined;
 
-var _scrollbar = require("./components/scrollbar");
+var _collapse = require("../components/collapse");
 
-var APP_INT = document.getElementById("root");
+var _scrollbar = require("../components/scrollbar");
 
-var App = function App(app) {
+var App = exports.App = function App(app) {
 
   var state = {
-    wrapper: app,
-    sectionScroll: app.querySelector('.section-content-scroll'),
-    asideScroll: app.querySelector('.aside-scroll'),
+    sectionScroll: app.querySelector('.section-content-scroll') || null,
+    asideScroll: app.querySelector('.aside-scroll') || null,
     collapseNav: {
-      wrapper: app,
-      btn: '#collapseToggle',
-      container: '#collapseContainer'
+      btn: app.querySelector('#collapseToggle') || null,
+      container: app.querySelector('#collapseContainer') || null
     },
     collapseAside: {
-      wrapper: app,
-      btn: '#messagesAll',
-      container: '#messages-aside-bar'
+      btn: app.querySelector('#messagesAll') || null,
+      container: app.querySelector('#messages-aside-bar') || null
     },
     collapseContainer: {
-      wrapper: app,
-      btn: '#messagesSettings',
-      container: '#messagesSectionBar'
+      btn: app.querySelector('#messagesSettings') || null,
+      container: app.querySelector('#messagesSectionBar') || null
     }
   };
 
   (0, _scrollbar.scrollBar)(state.sectionScroll);
   (0, _scrollbar.scrollBar)(state.asideScroll);
-
   (0, _collapse.collapse)(state.collapseNav);
   (0, _collapse.collapse)(state.collapseAside);
   (0, _collapse.collapse)(state.collapseContainer);
 };
 
-App(APP_INT);
+},{"../components/collapse":1,"../components/scrollbar":2}],4:[function(require,module,exports){
+"use strict";
 
-},{"./components/collapse":1,"./components/scrollbar":2}]},{},[3]);
+var _app = require("./containers/app");
+
+var APP_INT = document.getElementById("root");
+(0, _app.App)(APP_INT);
+
+},{"./containers/app":3}]},{},[4]);
