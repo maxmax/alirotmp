@@ -53,7 +53,7 @@
         "name" : "",
         "info" : "",
         "image" : {},
-        "icon" : "fa fa-sign-out"
+        "icon" : "icon-shape"
       }
     ]
   },
@@ -285,22 +285,22 @@
       {
         "id" : "sectionAside-1",
         "text" : "1. New",
-        "class" : "btn-success btn_small"
+        "class" : "btn-success btn-small"
       },
       {
         "id" : "sectionAside-2",
         "text" : "2. In Progress",
-        "class" : "btn-success btn_small"
+        "class" : "btn-success btn-small"
       },
       {
         "id" : "sectionAside-3",
         "text" : "3. Signed",
-        "class" : "btn_small"
+        "class" : "btn-small"
       },
       {
         "id" : "sectionAside-4",
         "text" : "4. Closed",
-        "class" : "btn_small"
+        "class" : "btn-small"
       }
     ]
   },
