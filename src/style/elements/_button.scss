@@ -39,15 +39,24 @@ button, .btn {
     @include button-default(white, $primary-color, $primary-color);
   }
   &.btn-info{
-    @include button-default(white, $info-color, $info-color);
+    @include button-default($color-tundra, $info-color, $info-color);
   }
   &.btn-warning{
-    @include button-default(white, $warning-color, $warning-color);
+    @include button-default($color-tundra, $warning-color, $warning-color);
   }
-  &.btn_small{
+  &.btn-small{
     border-radius: $border-radius-lg;
     font-size: .78em;
     line-height: 1;
     padding: 4px 24px;
+  }
+	&.btn-block{
+		display: block;
+		width: 100%;
+	}
+  &.disabled, [disabled]{
+    opacity: .8;
+    cursor: auto;
+    user-select: none;
   }
 }

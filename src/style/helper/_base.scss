@@ -64,6 +64,27 @@ body {
   text-align: center;
 }
 
+.lead{
+  font-size: 2em;
+}
+
 //.main{
 //  @include main;
 //}
+
+.test-wrapper{
+  .row{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    position: relative;
+    margin-bottom: 40px;
+    > aside {
+      width: 200px;
+    }
+    > section{
+      flex: 2;
+      position: relative;
+    }
+  }
+}

@@ -40,27 +40,168 @@
       {
         id: 6,
         text: "Button info small",
-        class: "btn-info btn_small"
+        class: "btn-info btn-small"
       },
       {
         id: 7,
         text: "Hello there! I'm interested in your product",
-        class: "btn-success btn_small"
+        class: "btn-success btn-small"
+      }
+    ],
+    buttonsBlock: [
+      {
+        id: 0,
+        text: "Button success block",
+        class: "btn-success btn-block"
+      },
+      {
+        id: 1,
+        text: "Button primary block",
+        class: "btn-primary btn-block"
+      },
+      {
+        id: 2,
+        text: "Button primary small block",
+        class: "btn-primary btn-small btn-block"
+      },
+      {
+        id: 3,
+        text: "Button disabled",
+        class: "btn-primary disabled"
+      },
+      {
+        id: 4,
+        text: "Button icon",
+        class: "btn-success",
+        icon: "icon icon-shape"
+      },
+      {
+        id: 5,
+        text: "Button icon",
+        class: "btn-warning",
+        icon: "fa fa-exclamation-triangle"
+      },
+      {
+        id: 6,
+        text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        class: "btn-info",
+        icon: "fa fa-diamond lead"
+      }
+    ],
+    customIcons: [
+      {
+        id: 0,
+        text: "icon-paperclip",
+        class: "icon-paperclip"
+      },
+      {
+        id: 1,
+        text: "icon-shape",
+        class: "icon-shape"
+      },
+      {
+        id: 2,
+        text: "icon-shape lead",
+        class: "icon-shape lead"
+      }
+    ],
+    awesomeIcons: [
+      {
+        id: 0,
+        text: "fa fa-cloud",
+        class: "fa-cloud"
+      },
+      {
+        id: 1,
+        text: "fa fa-cloud-download",
+        class: "fa-cloud-download"
+      },
+      {
+        id: 2,
+        text: "fa fa-unlock-alt",
+        class: "fa-unlock-alt lead"
+      }
+    ],
+    badges: [
+      {
+        id: 0,
+        text: "1",
+        class: ""
+      },
+      {
+        id: 1,
+        text: "12",
+        class: "badge-primary"
+      },
+      {
+        id: 2,
+        text: "33",
+        class: "badge-info"
+      },
+      {
+        id: 3,
+        text: "2",
+        class: "badge-warning"
       }
     ]
   } %}
 
   <div class="test-wrapper">
-    <h2 class="text-center">{{testData.int.title}}</h2>
-
-    {% if testData.buttons %}
-      <section class="text-center">
-        <h3>Buttons</h3>
-        {% for btn in testData.buttons %}
-          <button class="{{btn.class}}">{{btn.text}}</button>
-        {% endfor %}
-      </section>
-    {% endif %}
+    <section>
+      <h2>{{testData.int.title}}</h2>
+    </section>
+    <section class="row">
+      {% if testData.buttons %}
+        <aside><h3>Buttons:</h3></aside>
+        <section>
+          {% for btn in testData.buttons %}
+            <button class="{{btn.class}}">{{btn.text}}</button>
+            <br />
+            <br />
+          {% endfor %}
+        </section>
+        <section>
+          {% for btn in testData.buttonsBlock %}
+            <button class="{{btn.class}}">
+              {% if btn.icon %}
+                <span class="{{btn.icon}}"></span>
+              {% endif %}
+              {{btn.text}}
+            </button>
+            <br />
+            <br />
+          {% endfor %}
+        </section>
+      {% endif %}
+    </section>
+    <section class="row">
+      {% if testData.customIcons %}
+        <aside><h3>Icons:</h3></aside>
+        <section>
+          {% for icon in testData.customIcons %}
+            <div><apan class="icon {{icon.class}}"></span> {{icon.text}}</div>
+            <br />
+          {% endfor %}
+        </section>
+        <section>
+          {% for icon in testData.awesomeIcons %}
+            <div><apan class="fa {{icon.class}}"></span> {{icon.text}}</div>
+            <br />
+          {% endfor %}
+        </section>
+      {% endif %}
+    </section>
+    <section class="row">
+      {% if testData.customIcons %}
+        <aside><h3>Badges:</h3></aside>
+        <section>
+          {% for badge in testData.badges %}
+            <div><apan class="badge {{badge.class}}"></span> {{badge.text}}</div>
+            <br />
+          {% endfor %}
+        </section>
+      {% endif %}
+    </section>
 
   </div>
 
